@@ -28,7 +28,7 @@ PreparedStatement pstmt;
 ResultSet rs;
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/malariaandtyphoid/Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/gono/Login.fxml"));
         
      
        

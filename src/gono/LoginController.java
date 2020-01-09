@@ -148,55 +148,6 @@ ResultSet rs;
      dialog.show();  
            }else
            
-       if(Doctor.isSelected() && !otherStaff.isSelected()){     
-      conn = Javaconnect.ConnecrDB();
-       String sql = "SELECT * FROM SIGNUP WHERE ID=? AND Password=?";
-       try{
-           pstmt = conn.prepareStatement(sql);
-           pstmt.setString(1 , staffID.getText());
-           pstmt.setString(2 , pass.getText());
-           rs = pstmt.executeQuery();
-           if(rs.next()){ 
-             
-               
-               Parent root;  
-               Stage stage = new Stage();
-              
-            root = FXMLLoader.load(getClass().getResource("/Doctor/Doctor.fxml"));
-            // JFXDecorator decorator=new JFXDecorator(stage, root, false, false, true);
-      //  decorator.setCustomMaximize(false);
-    //   decorator.setBorder(Border.EMPTY);
-       
-        Scene scene = new Scene(root);
-//stage = (Stage) lgbtn.getScene().getWindow();
-              stage.setScene(scene);
-              stage.setResizable(false);
-              stage.centerOnScreen();
-              stage.show(); 
-               splashAnchorPane.getScene().getWindow().hide();
-                     Image img = new Image("/images/owk.png");
-               Notifications notificationBuilder = Notifications.create()
-               .title("LOGIN")
-               .text("LOGIN SUCCESFULL")
-               .graphic(new ImageView(img))
-               .hideAfter(Duration.seconds(3))
-               .position(Pos.BOTTOM_RIGHT);
-               notificationBuilder.show();
-           
-           }else{
-              Alert alert  = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("WARNING");
-            alert.setHeaderText(null);
-            alert.setContentText("INVALID DETAILS");
-            alert.showAndWait();
-           }
-               
-       }catch(Exception e){
-           
-       }
-       }else
-           
-       if(otherStaff.isSelected() && !Doctor.isSelected()){
             conn = Javaconnect.ConnecrDB();
        String sqll = "SELECT * FROM SIGNUP WHERE ID=? AND Password=?";
        try{
@@ -245,4 +196,3 @@ ResultSet rs;
       
 }
        }
-}
